@@ -344,7 +344,7 @@ function setupFadeInAnimations() {
 			{
 				opacity: 1,
 				y: 0,
-				duration: 1,
+				duration: 0.5,
 				ease: 'power2.out',
 				scrollTrigger: {
 					trigger: element,
