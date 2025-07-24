@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fuentes Tenpo */
+@font-face {
+	font-family: 'Graphie';
+	src: url('../assets/fonts/GraphieRegular.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap; /* Mejora rendimiento */
+}
+
+@font-face {
+	font-family: 'Graphie';
+	src: url('../assets/fonts/GraphieExtraBold.otf') format('opentype');
+	font-weight: 800;
+	font-style: normal;
+	font-display: swap; /* Mejora rendimiento */
+}
+
+/* Estilos base personalizados */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Open Sans', sans-serif;
+		color: #333333;
+		background-color: #f8f7f4;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: 'Graphie', sans-serif;
+	}
+}
+
+/* Componentes personalizados */
+@layer components {
+	.btn-primary {
+		@apply bg-tenpo text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-tenpo hover:scale-105 focus:outline-none focus:ring-4 focus:ring-tenpo/30;
+	}
+
+	.btn-secondary {
+		@apply bg-transparent border-2 border-tenpo text-tenpo px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-tenpo hover:text-white focus:outline-none focus:ring-4 focus:ring-tenpo/30;
+	}
+
+	.card-hover {
+		@apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+	}
+
+	.text-gradient {
+		@apply bg-gradient-to-r from-tenpo to-tenpo-suave bg-clip-text text-transparent;
+	}
+
+	.backdrop-glass {
+		@apply backdrop-blur-md bg-white/80;
+	}
+
+	.card-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 1rem; /* Mismo borde que la card */
+		transition: transform 0.3s ease-out;
+	}
+	.atropos:hover .card-bg {
+		transform: scale(1.1); /* Efecto de zoom sutil al fondo */
+	}
+}
+
+/* Scrollbar color tenpo */
+::-webkit-scrollbar {
+	width: 10px;
+	background: #e0f7ef; /* Fondo claro opcional */
+}
+
+::-webkit-scrollbar-thumb {
+	background: #10b981; /* tenpo Tailwind: emerald-500 */
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #059669; /* tenpo más oscuro: emerald-600 */
+}
+
+/* Firefox */
+html {
+	scrollbar-color: #10b981 #e0f7ef;
+	scrollbar-width: thin;
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+	.text-shadow {
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	.text-darker li a {
+		color: #333333 !important;
+	}
+
+	.parallax {
+		transform: translateZ(0);
+		will-change: transform;
+	}
+}

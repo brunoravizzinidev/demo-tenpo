@@ -1,0 +1,25 @@
+{
+	"name": "demo-tenpo",
+	"version": "1.0.0",
+	"description": "Landing page para Tenpo - Cuenta Digital Chile",
+	"main": "index.html",
+	"scripts": {
+		"dev": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch",
+		"build": "tailwindcss -i ./src/input.css -o ./dist/styles.css --minify",
+		"serve": "python3 -m http.server 8000",
+		"start": "tailwindcss -i ./src/input.css -o ./dist/styles.css --watch & python3 -m http.server 8000"
+	},
+	"keywords": [
+		"tenpo",
+		"cuenta digital",
+		"chile",
+		"finanzas",
+		"landing-page"
+	],
+	"author": "Bruno Ravizzini",
+	"license": "MIT",
+	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.15",
+		"tailwindcss": "^3.4.16"
+	}
+}

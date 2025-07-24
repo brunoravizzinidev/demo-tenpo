@@ -1,0 +1,70 @@
+{
+	"hero": {
+		"video_background_url": "https://cdn.prod.website-files.com/647f4d1c528358bdb9d8ef3e%2F687e6ec39b5aacdd7e3b9933_01NEOBANCO-transcode.mp4",
+		"headline": "Hay Tenpo para Todos",
+		"subheadline": "Revoluciona tu experiencia financiera con una cuenta 100% digital, sin letra chica, sin fronteras y con el respaldo de la tecnología más segura del país.",
+		"cta_button_text": "Tu cuenta en un instante"
+	},
+	"brand": {
+		"name": "Tenpo",
+		"logo_url": "assets/images/logo-white.png",
+		"logo_black_url": "assets/images/logo-black.png",
+		"logo_alt": "Tenpo"
+	},
+	"lifestyle": {
+		"title": "Tu plata, siempre disponible.",
+		"subtitle": "Control total desde tu celular.",
+		"description": "La Tarjeta Prepago Tenpo Mastercard te promete una experiencia financiera digital sin igual. Obtén una tarjeta física con un diseño único y disfruta de compras nacionales e internacionales, retiros en cajeros automáticos y transferencias entre bancos sin complicaciones.",
+		"images": [
+			{
+				"url": "assets/images/lifestyle1.jpg",
+				"alt": "Construir tu historial crediticio, hazlo todo en tu App Tenpo"
+			},
+			{
+				"url": "assets/images/contact1.png",
+				"alt": "¿Quieres tener control total de tus gastos financieros? Hazlo todo en tu App Tenpo"
+			}
+		]
+	},
+	"benefits_section": {
+		"title": "Beneficios de tu Tenpo",
+		"subtitle": "Descubre todo lo que Tenpo puede hacer por ti."
+	},
+	"navigation": {
+		"logo_text": "Tenpo",
+		"menu_items": [
+			{ "text": "Beneficios", "href": "#benefits" },
+			{ "text": "Lifestyle", "href": "#lifestyle" },
+			{ "text": "Contacto", "href": "#contact" }
+		],
+		"cta_button_text": "Tu cuenta en un instante"
+	},
+	"contact": {
+		"title": "Abre tu cuenta digital",
+		"subtitle": "Completa el formulario y un asesor Tenpo te ayudará a empezar tu experiencia 100% digital.",
+		"form_fields": {
+			"name_placeholder": "Tu nombre completo",
+			"email_placeholder": "Tu correo electrónico",
+			"phone_placeholder": "+56 9 9876 5432"
+		},
+		"submit_button_text": "Quiero Aprovechar mi Tenpo",
+		"success_message": "¡Listo! Te contactaremos pronto para guiarte en la apertura de tu cuenta digital.",
+		"error_message": "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.",
+		"image_url": "assets/images/contact_tenpo.webp",
+		"image_alt": "Persona usando la app Tenpo en su smartphone"
+	},
+	"footer": {
+		"logo_text": "Tenpo",
+		"address": "Av. Libertador Bernardo O'Higgins 1234, Santiago, Chile",
+		"phone": "+56 2 2760 6000",
+		"email": "contacto@tenpo.cl",
+		"social_links": {
+			"facebook": "https://facebook.com/tenpo",
+			"instagram": "https://instagram.com/tenpo",
+			"youtube": "https://youtube.com/tenpo"
+		},
+		"legal_text": "© 2025 Tenpo. Bruno Ravizzini. Todos los derechos reservados.",
+		"privacy_policy": "Política de Privacidad",
+		"terms": "Términos y Condiciones"
+	}
+}
