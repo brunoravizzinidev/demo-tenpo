@@ -25,8 +25,6 @@ async function initializeApp() {
 	try {
 		// Load content data
 		await loadContentData();
-		// Initialize Lenis smooth scroll first
-		initializeLenisScroll();
 		// Initialize all components
 		initializeNavigation();
 		setupAnimations();
@@ -36,7 +34,6 @@ async function initializeApp() {
 		initializeBenefits();
 		initializeContact();
 		initializeFooter();
-		// initializeScrollEffects();
 		initializeMobileMenu();
 
 		console.log('Tenpo Web app initialized successfully');
@@ -237,19 +234,15 @@ function initializeBenefits() {
 function setupAnimations() {
 	// Parallax effects
 	setupParallaxEffects();
-
 	// Fade in animations for sections
 	setupFadeInAnimations();
-
 	// Hero section animations
 	setupHeroAnimations();
-
-	// Hero section animations
+	// Antropos for benefits animations
 	setupAtroposEffects();
-
 	// other animation
 	// animateLifestylePhone();
-
+	// Animate phone scroll effect
 	animateLifestylePhoneScroll();
 }
 
@@ -356,9 +349,6 @@ function setupFadeInAnimations() {
 	});
 }
 
-/**
- * Anima la imagen del teléfono en la sección #lifestyle
- */
 function animateLifestylePhone() {
 	const phone = document.getElementById('lifestyle-phone');
 	if (
@@ -727,37 +717,6 @@ function getDefaultContent() {
 			cta_button_text: 'Tu cuenta en un instante',
 		},
 	};
-}
-
-/**
- * @purpose: Initialize Lenis smooth scroll
- */
-function initializeLenisScroll() {
-	if (typeof Lenis !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-		const lenis = new Lenis({
-			// duration: 1,
-			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-			// easing: (t) => t,
-			// smooth: true,
-			// wheelMultiplier: 1.2, // Más sensible al scroll del mouse
-			autoRaf: true,
-		});
-
-		function raf(time) {
-			lenis.raf(time);
-			requestAnimationFrame(raf);
-		}
-		requestAnimationFrame(raf);
-
-		// // // Conecta Lenis con ScrollTrigger
-		lenis.on('scroll', ScrollTrigger.update);
-
-		// // Sincroniza GSAP ticker con Lenis
-		gsap.ticker.add((time) => {
-			lenis.raf(time * 1000);
-		});
-		gsap.ticker.lagSmoothing(0);
-	}
 }
 
 // Export functions for global access
