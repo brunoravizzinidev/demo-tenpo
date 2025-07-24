@@ -54,7 +54,7 @@ async function loadContentData() {
 		}
 		contentData = await response.json();
 
-		console.log('LLEGA LA DATA', contentData);
+		// console.log('LLEGA LA DATA', contentData);
 	} catch (error) {
 		console.error('Error loading content data:', error);
 		// Fallback to default content if JSON fails to load
@@ -413,7 +413,7 @@ function animateLifestylePhoneScroll() {
 		ease: 'power1.inOut',
 	});
 
-	console.log('Phone scroll animation initialized');
+	// console.log('Phone scroll animation initialized');
 }
 
 /**
