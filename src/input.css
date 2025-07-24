@@ -85,17 +85,17 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #10b981; /* tenpo Tailwind: emerald-500 */
+	background: #00804a; /* tenpo Tailwind: emerald-500 */
 	border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #059669; /* tenpo más oscuro: emerald-600 */
+	background: #005733; /* tenpo más oscuro: emerald-600 */
 }
 
 /* Firefox */
 html {
-	scrollbar-color: #10b981 #e0f7ef;
+	scrollbar-color: #00804a #e0f7ef;
 	scrollbar-width: thin;
 }
 

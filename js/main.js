@@ -25,7 +25,8 @@ async function initializeApp() {
 	try {
 		// Load content data
 		await loadContentData();
-
+		// Initialize Lenis smooth scroll first
+		initializeLenisScroll();
 		// Initialize all components
 		initializeNavigation();
 		setupAnimations();
@@ -35,7 +36,7 @@ async function initializeApp() {
 		initializeBenefits();
 		initializeContact();
 		initializeFooter();
-		initializeScrollEffects();
+		// initializeScrollEffects();
 		initializeMobileMenu();
 
 		console.log('Tenpo Web app initialized successfully');
@@ -245,6 +246,11 @@ function setupAnimations() {
 
 	// Hero section animations
 	setupAtroposEffects();
+
+	// other animation
+	// animateLifestylePhone();
+
+	animateLifestylePhoneScroll();
 }
 
 function setupAtroposEffects() {
@@ -318,12 +324,13 @@ function setupHeroAnimations() {
 function setupParallaxEffects() {
 	gsap.utils.toArray('.parallax-element').forEach((element) => {
 		gsap.to(element, {
-			y: -50,
+			y: -200,
+			scale: 1.2, // Añade un efecto de escala para más dramatismo
 			scrollTrigger: {
 				trigger: element,
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: 1,
+				scrub: 0.5,
 			},
 		});
 	});
@@ -347,6 +354,76 @@ function setupFadeInAnimations() {
 			}
 		);
 	});
+}
+
+/**
+ * Anima la imagen del teléfono en la sección #lifestyle
+ */
+function animateLifestylePhone() {
+	const phone = document.getElementById('lifestyle-phone');
+	if (
+		!phone ||
+		typeof gsap === 'undefined' ||
+		typeof ScrollTrigger === 'undefined'
+	)
+		return;
+
+	gsap.fromTo(
+		phone,
+		{ opacity: 0, scale: 0.9, y: 60 },
+		{
+			opacity: 1,
+			scale: 1,
+			y: 0,
+			duration: 1.2,
+			ease: 'power3.out',
+			scrollTrigger: {
+				trigger: phone,
+				start: 'top 80%',
+				toggleActions: 'play none none reverse',
+			},
+		}
+	);
+}
+
+function animateLifestylePhoneScroll() {
+	const phoneContainer = document.querySelector('.phone-container');
+	const phoneImage = document.getElementById('lifestyle-phone');
+
+	if (
+		!phoneContainer ||
+		!phoneImage ||
+		typeof gsap === 'undefined' ||
+		typeof ScrollTrigger === 'undefined'
+	) {
+		console.log('Missing elements or libraries for phone animation');
+		return;
+	}
+
+	// Asegura perspectiva y transform-style
+	phoneContainer.style.perspective = '1000px';
+	phoneImage.style.transformStyle = 'preserve-3d';
+	phoneImage.style.willChange = 'transform';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	gsap.timeline({
+		scrollTrigger: {
+			trigger: phoneContainer,
+			start: 'top center',
+			end: 'bottom center',
+			scrub: 1,
+			// markers: true, // Activado para depuración
+			// onEnter: () => console.log('Phone animation triggered'),
+		},
+	}).to(phoneImage, {
+		rotationY: -45,
+		rotationX: 35,
+		z: 100,
+		ease: 'power1.inOut',
+	});
+
+	console.log('Phone scroll animation initialized');
 }
 
 /**
@@ -605,46 +682,6 @@ function getSocialIcon(platform) {
 }
 
 /**
- * @purpose: Initialize scroll effects and animations
- */
-function initializeScrollEffects() {
-	// Smooth scrolling for anchor links
-	document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-		anchor.addEventListener('click', function (e) {
-			e.preventDefault();
-			const target = document.querySelector(this.getAttribute('href'));
-			if (target) {
-				target.scrollIntoView({
-					behavior: 'smooth',
-					block: 'start',
-				});
-			}
-		});
-	});
-
-	// Intersection Observer for animations
-	const observerOptions = {
-		threshold: 0.1,
-		rootMargin: '0px 0px -50px 0px',
-	};
-
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach((entry) => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add('animate-fade-in');
-			}
-		});
-	}, observerOptions);
-
-	// Observe elements for animation
-	document
-		.querySelectorAll('.card-hover, #lifestyle, #benefits, #contact')
-		.forEach((el) => {
-			observer.observe(el);
-		});
-}
-
-/**
  * @purpose: Scroll to specific section
  * @params: sectionId (string)
  */
@@ -655,6 +692,7 @@ function scrollToSection(sectionId) {
 			document.getElementById('main-header').offsetHeight;
 		const targetPosition = section.offsetTop - headerHeight - 20;
 
+		// Usa scroll nativo simple para evitar conflictos
 		window.scrollTo({
 			top: targetPosition,
 			behavior: 'smooth',
@@ -689,6 +727,37 @@ function getDefaultContent() {
 			cta_button_text: 'Tu cuenta en un instante',
 		},
 	};
+}
+
+/**
+ * @purpose: Initialize Lenis smooth scroll
+ */
+function initializeLenisScroll() {
+	if (typeof Lenis !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+		const lenis = new Lenis({
+			// duration: 1,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			// easing: (t) => t,
+			// smooth: true,
+			// wheelMultiplier: 1.2, // Más sensible al scroll del mouse
+			autoRaf: true,
+		});
+
+		function raf(time) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+		requestAnimationFrame(raf);
+
+		// // // Conecta Lenis con ScrollTrigger
+		lenis.on('scroll', ScrollTrigger.update);
+
+		// // Sincroniza GSAP ticker con Lenis
+		gsap.ticker.add((time) => {
+			lenis.raf(time * 1000);
+		});
+		gsap.ticker.lagSmoothing(0);
+	}
 }
 
 // Export functions for global access

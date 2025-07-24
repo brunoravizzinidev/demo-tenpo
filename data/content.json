@@ -12,7 +12,7 @@
 		"logo_alt": "Tenpo"
 	},
 	"lifestyle": {
-		"title": "Tu plata, siempre disponible.",
+		"title": "Tu tarjeta, siempre disponible.",
 		"subtitle": "Control total desde tu celular.",
 		"description": "La Tarjeta Prepago Tenpo Mastercard te promete una experiencia financiera digital sin igual. Obtén una tarjeta física con un diseño único y disfruta de compras nacionales e internacionales, retiros en cajeros automáticos y transferencias entre bancos sin complicaciones.",
 		"images": [
@@ -50,7 +50,7 @@
 		"submit_button_text": "Quiero Aprovechar mi Tenpo",
 		"success_message": "¡Listo! Te contactaremos pronto para guiarte en la apertura de tu cuenta digital.",
 		"error_message": "Hubo un error al enviar tu solicitud. Por favor, intenta nuevamente.",
-		"image_url": "assets/images/contact_tenpo.webp",
+		"image_url": "assets/images/tenpo1.avif",
 		"image_alt": "Persona usando la app Tenpo en su smartphone"
 	},
 	"footer": {

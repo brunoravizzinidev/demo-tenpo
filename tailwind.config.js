@@ -7,8 +7,9 @@ module.exports = {
 				// Paleta de colores Tenpo - Cuenta Digital Chile
 				'light-text': '#EEEEEE', // Texto claro
 				secondary: '#00B2FF', // Azul secundario
-				tenpo: '#00C48C', // Verde principal Tenpo
-				'tenpo-suave': '#A7F3CE', // Verde suave Tenpo
+				primary: '#03FF94', // Verde primary (nuevo)
+				tenpo: '#03FF94', // Verde principal Tenpo
+				'tenpo-suave': '#6AFFC1', // Verde suave Tenpo
 			},
 			fontFamily: {
 				// Tipografías personalizadas
