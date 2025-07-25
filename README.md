@@ -30,9 +30,9 @@ Capturar leads calificados mediante un formulario digital para la apertura de cu
 ### Funcionalidades
 
 -   📱 Diseño 100% responsive y mobile-first
--   ⚡ Carga dinámica de contenido desde JSON
+-   ⚡ Carga dinámica de contenido desde JSON y Loading
 -   📝 Formulario de apertura de cuenta con validación en tiempo real
--   🎭 Micro-interacciones y animaciones fluidas con GSAP, atroposjs, lenis y ScrollTrigger
+-   🎭 Micro-interacciones y animaciones fluidas con GSAP, atroposjs y ScrollTrigger
 -   🔍 SEO optimizado con meta tags y Open Graph desde JSON
 -   ♿ Accesibilidad
 -   📊 Listo para integración con Google Tag Manager
@@ -41,7 +41,7 @@ Capturar leads calificados mediante un formulario digital para la apertura de cu
 
 1. **Header/Navegación:** Sticky header con logo Tenpo y CTA destacado - Adapta Movile
 2. **Hero:** Video de fondo (vida digital) y mensaje principal - CTA
-3. **App Mockup:** Showcase animado del producto Tenpo App
+3. **Benefits:** Textos y showcase animado del producto en la App
 4. **Beneficios:** Grilla animada con las ventajas y servicios clave
 5. **Contacto:** Formulario digital con feedback instantáneo
 6. **Footer:** Información institucional, redes sociales y legalidad
@@ -220,7 +220,6 @@ theme: {
 1. **Netlify** (recomendado)
 2. **Vercel**
 3. **GitHub Pages**
-4. **Servidor propio o tradicional**
 
 ### Pasos para Netlify
 

@@ -37,8 +37,12 @@ async function initializeApp() {
 		initializeMobileMenu();
 
 		console.log('Tenpo Web app initialized successfully');
+
+		document.getElementById('loader').style.display = 'none';
 	} catch (error) {
 		console.error('Error initializing app:', error);
+
+		document.getElementById('loader').style.display = 'none';
 	}
 }
 
